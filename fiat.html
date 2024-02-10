@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Fiat Management</title>
+
+    <!--asset-->
+    <link rel="shortcut icon" type="text/css" href="asset/img/favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://preview.colorlib.com/theme/bootstrap/css-table-19/css/style.css">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="vendor/fontawesome/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
+
+    <!-- Bootstrap daterangepicker -->
+    <link rel="stylesheet" href="vendor/bootstrap-daterangepicker/daterangepicker.css">
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="asset/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2 sidebar">
+                    <div class="sidebar-header">
+                        <div class="sidebar-close d-lg-none"></div>
+                        <div class="logo">
+                            <img src="asset/img/logo.png" class="img-fluid mb-2 sidebar-logo" alt="">
+                        </div>
+                    </div>
+                    <div class="sidebar-content">
+                        <ul class="sidebar-nav-links">
+                            <li class="adm-sidebar-link-item">
+                                <a href="index.html" class="sidebar-link">
+                                    <img src="asset/img/dashboard-img.png" alt="">
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="adm-sidebar-link-item">
+                                <a href="users.html" class="sidebar-link ">
+                                    <img src="asset/img/users-img.png" alt="">
+                                    Users Management
+                                </a>
+                            </li>
+                            <li class="adm-sidebar-link-item">
+                                <a href="crypto.html" class="sidebar-link">
+                                    <img src="asset/img/bitcon-img.png" alt="">
+                                    Crypto Management
+                                </a>
+                            </li>
+                            <li class="adm-sidebar-link-item">
+                                <a href="fiat.html" class="sidebar-link active">
+                                    <img src="asset/img/fiat-img.png" alt="">
+                                    Fiat Management
+                                </a>
+                            </li>
+
+                        </ul>
+                        <div class="sidebar-footer">
+                            <a href="profile.html" class="sidebar-link mb-5">
+                                <img src="asset/img/user-img.png" alt="">
+                                Profile
+                            </a>
+                            <a href="login.html" class="sidebar-link mt-5">
+                                <img src="asset/img/logout.png" alt="">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10 main">
+                    <div class="container-fluid px-4">
+                        <div class="main-header">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="menu d-lg-none">
+                                    <i class="fa fa-arrow-left"></i>
+                                </div>
+                                <h1>Naira Transactions</h1>
+                            </div>
+
+                            <div class="profile-dropdown d-non">
+                                <div class="drop-now d-flex align-items-center justify-content-between gap-4">
+                                    <div class="d-flex align-items-center align-items-start gap-2">
+                                        <div class="img">
+                                            <img src="asset/img/team-4.png" class="img-flui" alt="">
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <span class="name">Victor Kalu</span>
+                                            <span class="role">Product Designer</span>
+                                        </div>
+                                    </div>
+                                    <div class="directions close">
+                                        <i class="fa fa-chevron-down"></i>
+                                        <i class="fa fa-chevron-up"></i>
+                                    </div>
+                                </div>
+                                <ul class="profile-dropdown-items d-none">
+                                    <li class="dropdown-item"><a href="profile.html"><img src="asset/img/user-img.png"
+                                                class="img-fluid" alt="">Profile</a></li>
+                                    <li class="dropdown-item"><a href="login.html"><img src="asset/img/logout.png"
+                                                class="img-fluid" alt="">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="main-content">
+                            <div class="row my-4">
+                                <div class="col-12">
+                                    <div class="d-filter">
+                                        <div class="search-ctn">
+                                            <img src="asset/img/search-img.png" alt="">
+                                            <input class="search_keyword" placeholder="Search">
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between gap-3">
+                                            <div class="date-filter">
+                                                <img src="asset/img/calender-img2.png" alt="">
+                                                <input type="text" class="dates-select input-limit-datepicker"
+                                                    value="Select dates">
+                                            </div>
+                                            <button class="filter">
+                                                <img src="asset/img/filter-img.png" alt="">
+                                                <span>Filters</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row mt-4">
+                                <div class="col-12 mt-4">
+                                    <div class="table-responsive w-100 border table-rounded">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <div  class="d-flex align-items-center gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Customer name</span>
+                                                            </div>
+                                                        </div>
+                                                    </th>
+                                                    <th>
+                                                        <span>Transaction ID</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>Status</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>Amount</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>Date</span>
+                                                    </th>
+                                                    <th>
+                                                        <span></span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_nit">
+                                                                <span>M</span>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Michael Charsac</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span>AZA214525478</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="custom-badge custom-badge-success">Success</span>
+                                                    </td>
+                                                    <td><span>N25,321</span></td>
+                                                    <td><span>Jan 26, 2024 12:06PM</span></td>
+                                                    <td><span><i class="fas fa-ellipsis-h"></i></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_nit">
+                                                                <span>M</span>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Michael Charsac</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span>AZA214525478</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="custom-badge custom-badge-pending">Pending</span>
+                                                    </td>
+                                                    <td><span>N25,321</span></td>
+                                                    <td><span>Jan 26, 2024 12:06PM</span></td>
+                                                    <td><span><i class="fas fa-ellipsis-h"></i></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_nit">
+                                                                <span>M</span>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Michael Charsac</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span>AZA214525478</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="custom-badge custom-badge-success">Success</span>
+                                                    </td>
+                                                    <td><span>N25,321</span></td>
+                                                    <td><span>Jan 26, 2024 12:06PM</span></td>
+                                                    <td><span><i class="fas fa-ellipsis-h"></i></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_nit">
+                                                                <span>M</span>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Michael Charsac</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span>AZA214525478</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="custom-badge custom-badge-success">Success</span>
+                                                    </td>
+                                                    <td><span>N25,321</span></td>
+                                                    <td><span>Jan 26, 2024 12:06PM</span></td>
+                                                    <td><span><i class="fas fa-ellipsis-h"></i></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_nit">
+                                                                <span>M</span>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Michael Charsac</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span>AZA214525478</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="custom-badge custom-badge-success">Success</span>
+                                                    </td>
+                                                    <td><span>N25,321</span></td>
+                                                    <td><span>Jan 26, 2024 12:06PM</span></td>
+                                                    <td><span><i class="fas fa-ellipsis-h"></i></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_nit">
+                                                                <span>M</span>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Michael Charsac</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span>AZA214525478</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="custom-badge custom-badge-success">Success</span>
+                                                    </td>
+                                                    <td><span>N25,321</span></td>
+                                                    <td><span>Jan 26, 2024 12:06PM</span></td>
+                                                    <td><span><i class="fas fa-ellipsis-h"></i></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_nit">
+                                                                <span>M</span>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Michael Charsac</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span>AZA214525478</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="custom-badge custom-badge-success">Success</span>
+                                                    </td>
+                                                    <td><span>N25,321</span></td>
+                                                    <td><span>Jan 26, 2024 12:06PM</span></td>
+                                                    <td><span><i class="fas fa-ellipsis-h"></i></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_nit">
+                                                                <span>M</span>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Michael Charsac</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span>AZA214525478</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="custom-badge custom-badge-success">Success</span>
+                                                    </td>
+                                                    <td><span>N25,321</span></td>
+                                                    <td><span>Jan 26, 2024 12:06PM</span></td>
+                                                    <td><span><i class="fas fa-ellipsis-h"></i></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_nit">
+                                                                <span>M</span>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Michael Charsac</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span>AZA214525478</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="custom-badge custom-badge-success">Success</span>
+                                                    </td>
+                                                    <td><span>N25,321</span></td>
+                                                    <td><span>Jan 26, 2024 12:06PM</span></td>
+                                                    <td><span><i class="fas fa-ellipsis-h"></i></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_nit">
+                                                                <span>M</span>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Michael Charsac</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span>AZA214525478</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="custom-badge custom-badge-success">Success</span>
+                                                    </td>
+                                                    <td><span>N25,321</span></td>
+                                                    <td><span>Jan 26, 2024 12:06PM</span></td>
+                                                    <td><span><i class="fas fa-ellipsis-h"></i></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start gap-2">
+                                                            <div class="form-check custom-checkbox checkbox-success check-lg">
+                                                                <input type="checkbox" class="form-check-input"
+                                                                     id="customCheckBox8" >
+                                                                <label class="form-check-label"
+                                                                    for="customCheckBox8"></label>
+                                                            </div>
+                                                            <div class="apt_nit">
+                                                                <span>M</span>
+                                                            </div>
+                                                            <div class="apt_ful">
+                                                                <span> Michael Charsac</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span>AZA214525478</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="custom-badge custom-badge-success">Success</span>
+                                                    </td>
+                                                    <td><span>N25,321</span></td>
+                                                    <td><span>Jan 26, 2024 12:06PM</span></td>
+                                                    <td><span><i class="fas fa-ellipsis-h"></i></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--*********************************** USER MODAL  *************************************** -->
+    <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body rounded" style="background: #fff;position:relative">
+                    <button type="button" class="btn-close float-right" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                    <div class="container-fluid mt-3">
+                       <div class="user-img">
+                            <img src="asset/img/team-1.png" class="img-fluid" alt="">
+                       </div>
+                       <h3 class="user-name">Ogbonna Michael</h3>
+
+                       <div class="record first">
+                        <h3>Total crypto received</h3>
+                        <h3>524,142</h3>
+                       </div>
+                       <div class="record last">
+                        <h3>Total naira sent</h3>
+                        <h3>524,142</h3>
+                       </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row w-100">
+                        <div class="col-6">
+                            <button class="btn-cancel">Cancel</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn-block">Block</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- JS FILES -->
+    <script src="vendor/jquery/jQuery3.6.1.min.js"></script>
+    <script src="vendor/popper/popper.js"></script>
+    <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="vendor/fontawesome/all.min.js"></script>
+    <script src="vendor/jquery-validate/jquery.validate.js"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <!-- <script src="vendor/chart-js/chart.bundle.min.js"></script> -->
+    <script src="vendor/moment/moment.min.js"></script>
+    <script src="vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="asset/js/dashboard.js"></script>
+    <script src="asset/js/plugins_init.js"></script>
+    <script src="asset/js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            if ($(".metrics-swiper").length > 0) {
+
+                var swiper = new Swiper(".metrics-swiper",
+                    {
+                        speed: 3e3,
+                        slidesPerView: 4,
+                        // centeredSlides: true,
+                        spaceBetween: 20,
+                        parallax: !0,
+                        loop: !0,
+                        autoplay: { delay: 3e3 },
+                        breakpoints: { 1350: { slidesPerView: 4 }, 1200: { slidesPerView: 3 }, 991: { slidesPerView: 3 }, 768: { slidesPerView: 2 }, 576: { slidesPerView: 2 }, 320: { slidesPerView: 1 } }
+                    });
+            }
+
+            $('.dates-select').val('Select dates');
+
+
+
+            /*************************** SETUP EVENT LISTENER FOR DATERANGE SELECTION *****************/
+            $('.input-limit-datepicker').on('apply.daterangepicker', function (ev, picker) {
+                // picker.startDate and picker.endDate will contain the selected start and end dates
+                var startDate = picker.startDate.format('MM/DD/YYYY');
+                var endDate = picker.endDate.format('MM/DD/YYYY');
+
+                console.log('Start Date: ', startDate);
+                console.log('End Date: ', endDate);
+
+            });
+        })
+    </script>
+</body>
+
+</html>
